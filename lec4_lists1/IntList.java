@@ -37,11 +37,20 @@ public class IntList {
 		return rest.get(i - 1);
 	}
 
+	/** Adds and integer x to the start of the list */
+	public void addFirst(int x) {
+		IntList n = new IntList(this.first, this.rest);
+		this.first = x;
+		this.rest = n;
+	}
+
 	public static void main(String[] args) {
 		IntList L = new IntList(15, null);
-		L = new IntList(10, L);
-		L = new IntList(5, L);
+		L.addFirst(10);
+		L.addFirst(5);
 
-		System.out.println(L.get(100));
+		System.out.println(L.get(0));
+		System.out.println(L.get(1));
+		System.out.println(L.get(2));
 	}
 } 
